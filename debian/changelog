@@ -1,3 +1,9 @@
+systemd-swap (4.3.2ubuntu1) focal; urgency=medium
+
+  * Finalize setup of Debian package.
+
+ -- Oliver Old <oliver.old@outlook.com>  Tue, 21 Jul 2020 05:33:36 +0200
+
 systemd-swap (4.3.2) focal; urgency=medium
 
   [ Timofey ]
@@ -483,4 +489,4 @@ systemd-swap (4.3.2) focal; urgency=medium
   * Re-add workaround for zram module loading
   * Increase snore value
 
- -- Oliver Old <oliver.old@outlook.com>  Tue, 21 Jul 2020 05:11:28 +0200
+ -- Oliver Old <oliver.old@outlook.com>  Tue, 21 Jul 2020 05:30:27 +0200
