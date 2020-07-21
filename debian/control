@@ -1,0 +1,16 @@
+Source: systemd-swap
+Maintainer: Oliver Old <oliver.old@outlook.com>
+Section: admin
+Priority: optional
+Build-Depends: debhelper
+Standards-Version: 4.5.0
+Rules-Requires-Root: no
+
+Package: systemd-swap
+Architecture: all
+Section: admin
+Priority: optional
+Essential: no
+Depends: util-linux
+Description: Script for creating hybrid swap space from zram swaps, swap files and swap partitions.
+Homepage: https://github.com/Nefelim4ag/systemd-swap

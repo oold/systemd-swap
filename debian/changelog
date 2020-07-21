@@ -1,0 +1,486 @@
+systemd-swap (4.3.2) focal; urgency=medium
+
+  [ Timofey ]
+  * Initial commit
+
+  [ TimofeyTitovets ]
+  * created working tree
+  * Rework zram/swapf mounting
+  * small fixes
+  * add modprobe loop Also, some information added to README
+
+  [ flyboy14 ]
+  * orphography
+
+  [ TimofeyTitovets ]
+  * small optimization fix: numbers of devices initializing while load zram module. cpu_counts: call one time move ram_size variable to script from config
+  * add autodisable swapf if swap mounts via fstab
+  * small fixes
+  * rework code. add swappiness
+  * fix: Warning while boot service - add some twicks sh - small rework and logic fixes Add PKGBUILD to git
+
+  [ Timofey ]
+  * Add logic to speedup booting
+  * speedup by full parallelize logic
+  * from config's backup -> value set cache Logic has rewritten, optimized threads and code, how it possible
+  * add support for swap partitions also, added support for multiple swapfiles
+  * typo fix in array index
+  * cleanup code, decrease swapon calls by using arrays
+  * not save empty swapdevs array Also several fixes in PKGBUILD
+  * fix: empty .service file
+  * Small fixes
+  * rm PKGBUILD Also, PKGBUILD from now, using source from git.
+  * add zswap handler
+  * Small cleanups
+  * Add link to AUR
+  * Fix run order
+
+  [ Ari Edelkind ]
+  * Bug fixes
+
+  [ Timofey ]
+  * Remove dead logic
+  * Bash tests cleanups
+  * new feature
+  * fix =_=
+
+  [ Radek Podgorny ]
+  * corrected english in readme
+  * english corrections in config file
+  * minor formatting fixes
+
+  [ Timofey ]
+  * Rework code
+  * Add simple installer
+  * fix run order
+  * separated config to function
+  * Add annotation to 90-*.conf Explain why i hardcoded loadmole with 32 devices.
+  * Fix missing args
+  * oversimplif. start function
+  * replace cat to .
+  * Add options output
+  * Change indentation
+  * polished
+  * 2.21 in changelog
+  * Link in readme to community repos
+  * add support for zram lz4 alg
+  * Changelog updated
+  * using zram comp streams from now, script use one first free device instead using several devices to parallel compression streams, from now we use native max_comp_streams
+  * add utility write function
+  * Remove parse zswap function
+  * Cleanups and updates More in changelog
+
+  [ Felix Yan ]
+  * mark true for the conditional logic, to make the rest of the script executable
+  * fix: don't fail when there's no swapd
+
+  [ Timofey ]
+  * zram management using zramctl
+  * fix bug: gluing data written through write()
+  * Use autoclear instead of manual deatach loop device
+
+  [ Felix Yan ]
+  * fix 90-systemd-swap.conf so the comment will not be treated as params by modprobe
+
+  [ Timofey ]
+  * fix: comment style // -> #
+  * Fixes: See changelog for detail.
+  * Add discard support for swap
+  * Service type now "simple"
+  * release 2.24.6
+  * Optimizations
+  * use nproc for determine cpu count
+
+  [ Timofey Titovets ]
+  * Fix packaging information
+  * Fix packaging information
+  * Use /run/.*.* instead of /run/lock/*.*
+  * Move to zramctl from util-linux
+
+  [ Timofey ]
+  * Remove sudo typo
+
+  [ Timofey Titovets ]
+  * Try handle unstable zram enabling #14
+
+  [ Maxim Kraev ]
+  * the default value for zram[force] is "true" and is not "force"
+
+  [ Timofey Titovets ]
+  * Add Zswap configuration support
+  * Add temp script for parsing VGA VRAM for swap proposes
+  * Delete abandoned CHANGELOG.md
+  * EXPERIMENTAL: Add vramswap support
+  * zswap: Add support for configure zpool
+  * Simplify zswap handler logic
+  * Add echo wrappers
+  * Update: install.sh
+  * Random Fixes
+  * Use zram module hot add support instead of modprobe
+  * Add package.sh
+  * Update README.md
+  * Rewrite zram part
+  * Update config description
+  * Add check for output of zramctl
+  * Update systemd-swap.conf
+
+  [ meh ]
+  * Make zram module checking optional
+
+  [ Timofey Titovets ]
+  * Add control of zram module check to config
+
+  [ Mikalai Ramanovich ]
+  * Use 'discard' for zram
+
+  [ Timofey Titovets ]
+  * Full rewrite, simplify code & config
+  * Fix package.sh bug #27
+  * Fix package.sh bug #26
+  * Add chunk allocator for swap file
+  * Fix swapf -> swapfu in code
+
+  [ Felix Yan ]
+  * Use 0/1 consistently in example swap.conf
+  * Some more swapf -> swapfu fixes. (fixes #28)
+
+  [ Timofey Titovets ]
+  * swapf -> swapfu
+
+  [ Felix Yan ]
+  * Some english fixes
+
+  [ Timofey Titovets ]
+  * Fix PREFIX= arg in install.sh
+  * Add some info about configuration to README.md
+  * Added: swapfu preallocated + nocow
+  * Update README.md, about swapfc chunk remove
+  * Added: swapFU directio + more tests
+  * TimeoutStopSec=90 -> 600, because swapoff can be slow
+  * Use Makefile instead of install.sh
+  * make service install compatible with debian systems
+  * Add missing make install in package.sh
+  * Fix swapfc for XFS, f2fs & etc
+  * Rewrite table for swapFU
+  * Simplify ERRO()
+  * Add wrapper mkswap_w()
+  * Cleanups & Fixes
+  * Added: swapd_prio option
+  * Rework: get_free_swap_perc
+  * Added: for_test_swapfu.fio
+  * Not schred swapfc file on ext4
+  * Make stop more stateless
+  * package.sh use more debian like deb package name
+  * Add simple status output for zswap
+  * Add simple zram status output for zswap
+  * Add zswap efficiency string
+  * Add support for override config by: /etc/systemd/swap.conf.d/
+  * Fix some error cases in status
+  * Reverse stop order
+  * Make stop path more linear
+  * Random code updates
+  * Add .gitignore
+  * Fix var names
+
+  [ Rolandas Valteris ]
+  * fix command typo (#40)
+
+  [ Timofey Titovets ]
+  * Status: add support for swapfu
+  * Fix ext4 detection for swapfc
+  * Fix swapFC defaults
+  * Status: add swapfc output
+  * Status: simplify swapfc status logic
+  * Status: add swapd support
+  * FIX STUPID TYPO AGAIN
+  * Use systemd.swap units for swapon
+  * Little rework swapfu module
+  * Try fix issue: #41
+  * Use 'realpath' for cleanup path to dev/file
+  * systemd swap unit generator: handle @
+  * Replace sed with bash in unit generator
+
+  [ Rémi Somdecoste-Lespoune ]
+  * Can now read config files from /home, /root, and /run/user (#43)
+
+  [ Timofey Titovets ]
+  * Simplify: systemd_swapon
+  * Handle case where swapfu_path is directory
+  * Get FS type directly by stat
+  * Replace all swapoff by systemctl stop
+  * Bind swap units to swap.target.wants
+  * Bind swap units to swap.target.wants also in /run/systemd/system/
+  * Pickup swap devs from systemd-gpt-auto-generator
+  * Make systemd_swapon detect block/files swaps
+  * Zswap: change default z3fold -> zbud, zbud works more stable
+  * Use swapoff instead of systemctl again, because that cause problems for stopping unit
+  * Cleanup
+  * Cleanup
+  * Cleanup service
+  * Cleanup
+  * Rewrite systemd-swap again
+  * Use only swapoff again, because systemctl stop works bad on system shutdown
+  * Fix math in status
+  * Change shred flags for speedup shred
+  * Add function to precheck free space on FS for swapFC
+  * Math free space directly by FS info, instead of fallocate several times
+  * swapFC: call losetup only once on file prepare for btrfs
+  * Fix swap discarding on swapFC: loop + fallocate
+  * Format swapFC mkswap output
+  * Remove useless echo
+  * swapFC: fix vars names mess
+  * Cleanup
+  * Move ENOSPC check to another function
+  * Update README.md about merge swapFC & swapFU
+  * SwapFC: remove swapoff dead code
+  * All units must be linked to swap target
+  * Update debian package info
+  * Add links to zswap/zram kernel description txt
+  * Add SwapFC description to README.md
+  * Update README.md
+  * Make swapon/swapoff timeout much bigger - 1h
+  * Update makefile
+  * Fix config installation
+  * Add workaround for fallocate on ext2/3 filesystems
+  * Warn if can't allocate zram device
+
+  [ Montecito ]
+  * + Add rpm packaging for fedora
+
+  [ Alexandre Bouvier ]
+  * use standard systemd conf.d directories
+
+  [ Xiao Liang ]
+  * fix(Makefile): deb target contained syntax error
+
+  [ Timofey Titovets ]
+  * Fix false ENOSPC
+
+  [ liberodark ]
+  * For help users ? (#75)
+
+  [ Timofey Titovets ]
+  * Fix fstype detection
+  * Parse kernel version
+  * Fix wrong comment in swap.conf
+
+  [ Libor Klepáč ]
+  * make status work with column from bsdmainutils
+
+  [ liberodark ]
+  * Update package.sh
+  * Update systemd-swap
+  * Update package.sh
+  * Update systemd-swap
+  * Update systemd-swap
+
+  [ Carrol Cox ]
+  * [UPD] update style
+  * [UPD] style with shellcheck
+  * [UPD] delete double space
+  * [UPD] style and lint, plus: * shellcheck * several zRam devices instead single
+  * [UPD] linted and updated readme file
+  * [FIX] Readme images and Q/A section
+  * [FIX] Readme deb package name
+
+  [ Sergey Kasmy ]
+  * Use normal swap files on btrfs when it's supported (#92)
+
+  [ Sergey A ]
+  * Fix several grammar issues in README and .conf (#95)
+
+  [ Balki ]
+  * Fix failed swap units
+
+  [ Sergei Lomakov ]
+  * Add rpmbuild support for CentOS and Redhat
+  * Update README.md
+
+  [ Carrol Cox ]
+  * [UPD] adds zram_count for count /dev/zramX devices - It's equal number of 'nproc' by default
+  * [FIX] Verifies with shellcheck and fixes issues
+
+  [ Vilgot Fredenberg ]
+  * Remove external process `sleep`
+  * Update swap.conf to match our new snore function
+  * Clean-up unneeded MacOS workaround.
+  * Only try to apply chattr if we're on btrfs
+  * Remove excess braces resulting in error
+  * Only allocate swap if needed.
+  * [Performance] Only search needed directories.
+  * Merge `grep`:s into one using regex magic
+  * Only check free_ram if we've got no swapfile
+  * More grep magic
+  * Use `dd` instead of `fallocate` if linux >=5.7
+  * Increase bs from 1K to 1M improving performance
+  * Reduce privileges
+  * Additional systemd hardening
+  * Only use `dd` for ext{2,3,4} and xfs
+  * Update default fedora version to f32
+  * Update default settings
+  * Allow modprobe zram
+  * Fix detection of ext filesystems
+
+  [ liberodark ]
+  * Update README.md
+
+  [ Vilgot Fredenberg ]
+  * Use `dd` regardless of kernel version (if ext or xfs).
+  * Simplify if statement's logic
+  * Remove uneeded chunk_size checks.
+  * Don't use `dd` on ext3 or ext2
+
+  [ Thorsten Schubert ]
+  * Only use `dd` for f2fs
+  * Do not use grep for aquiring memory stats
+
+  [ Vilgot Fredenberg ]
+  * Use `dd` for ext3
+
+  [ Thorsten Schubert ]
+  * Remove redundant creation of a temporary file and quieten `dd`
+  * Correct some spelling and grammar mistakes
+  * Log swap activation threshold used by swapFC
+
+  [ Vilgot Fredenberg ]
+  * Tidy up code
+
+  [ Thorsten Schubert ]
+  * Clean up code and reduce external command usage
+
+  [ Vilgot Fredenberg ]
+  * Remove unneeded information from readme
+  * More systemd hardening
+  * Revert nounset
+
+  [ zeno ]
+  * Follow systemd configuration loading scheme (#124)
+
+  [ Vilgot Fredenberg ]
+  * Don't shred on f2fs and xfs
+  * Remove unneeded(?) case statement
+  * Use && and || syntax instead of if and else.
+  * We are a forking type, not simple
+  * Actually run at a higherpriority
+  * Remove bloat and startup at an appropriate time
+  * Don't reload the systemd daemon
+  * Revert "We are a forking type, not simple"
+  * Reload systemd when using zram
+  * Reordering of the daemon so we don't need to fork
+
+  [ zeno ]
+  * Load default configuration from /usr/share/systemd-swap (#126)
+
+  [ Vilgot Fredenberg ]
+  * Fix for non swapfc setups
+  * Warn if zswap and zram are enabled simultaneously.
+  * Add reusable code into functions & fix defaults.
+  * Make swapfc scale down percent configurable
+  * Warn if zram is combined with other options.
+  * Don't reevalute every variable on startup.
+  * Don't sleep for five seconds on stop
+  * Preallocate swap_fc chunks (#128)
+  * Reload systemd everytime
+  * Allow setting priority
+  * Add initial man-page for systemd-swap
+  * Rename systemd-swap.1 to systemd-swap.8
+
+  [ Thorsten Schubert ]
+  * Use Type=notify for service
+  * Generate swap.conf from swap-default.conf
+  * Fix $NOTIFY_SOCKET was not set.
+
+  [ Vilgot Fredenberg ]
+  * Remove literal "-e" from swap.conf
+
+  [ Thorsten Schubert ]
+  * Revamp Makefile to support man pages
+  * Add generated swap.conf to .gitignore
+  * Fix bug introduced with 3aad6df
+
+  [ Vilgot Fredenberg ]
+  * Restructuring and add explanations to man.
+  * Fix zram regression
+  * Update man page to new release.
+
+  [ zeno ]
+  * Cosmetic changes and updated SPEC (#136)
+
+  [ Vilgot Fredenberg ]
+  * Allow swapon for swap partitions.
+  * Reload systemd before creating zram devices
+  * Restrict SUID/SGID
+  * Don't allow creation of internet sockets
+
+  [ Thorsten Schubert ]
+  * Do not use subshell for grouping.
+
+  [ Sergey Kasmy ]
+  * Fix not being able to create a btrfs snapshot if the swap file was on the same subvolume (#140)
+
+  [ zeno ]
+  * Hotfix for missing double quote (#142)
+
+  [ Vilgot Fredenberg ]
+  * Remove bugfix version from man page.
+  * Add missing "-p" to mkdir
+  * Log different swapFC messages.
+
+  [ Thorsten Schubert ]
+  * Escape swapfc path
+  * Dynamically patch prefix for installs
+  * Generate swap.conf with correct path directly
+  * Update README reflecting support for prefix
+
+  [ Vilgot Fredenberg ]
+  * Change default swapfc_priority from -2 to 50
+  * Simplify swapfc_priority
+
+  [ zeno ]
+  * Limit polling rate on ENOSPC (#149)
+
+  [ Sergey Kasmy ]
+  * Check if swapfc_path is a btrfs subvolume when df returns fstype '-'
+  * Create $swapfc_path dir only on non-btrfs filesystems
+
+  [ Vilgot Fredenberg ]
+  * Add swapfc_free_ram_perc for first swap file.
+  * Only print swapFC info when it makes sense.
+  * Quiet mkswap for swapfc
+  * [dd] use conv=fdatasync
+  * Always use `[[` instead of `[` for performance
+  * Nounset
+  * Make variables local
+  * Revert nounset
+
+  [ Thorsten Schubert ]
+  * Style refinements
+
+  [ Vilgot Fredenberg ]
+  * Cleanup variable use
+  * Remove the zram module at stop if unloaded before
+  * Remove unneeded systemd-swap.service hardening
+  * Error instead of terminating on syscall whitelist
+  * Remove dependency on `uname`
+  * Revert "Remove dependency on `uname`"
+  * Replace basename and dirname with bash code
+  * Don't check to remove a swap file if we've just created one
+  * Remove systemd-escape
+  * Coding style fixups
+  * Save FIND_SWAP_UNITS as a variable on stop
+  * Properly replicate systemd-escape -p
+  * Fix not removing swap units.
+  * Allow swapon for lvm (device mapper)
+  * Allow loop device access
+  * Use dd for all filesystems
+
+  [ Oliver Old ]
+  * Properly exclude directories and files created by building packages
+  * deb: Mark files in etc as conffiles to prevent overwriting them
+
+  [ Vilgot Fredenberg ]
+  * Set vim tab settings as 2 spaces
+  * Re-add workaround for zram module loading
+  * Increase snore value
+
+ -- Oliver Old <oliver.old@outlook.com>  Tue, 21 Jul 2020 05:11:28 +0200
