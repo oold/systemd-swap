@@ -1,3 +1,28 @@
+systemd-swap (4.3.3) focal; urgency=medium
+
+  [ Vilgot Fredenberg ]
+  * Mention zeno copr in readme
+  * Update readme.md
+
+  [ Oliver Old ]
+  * README.md: Suggest apt for installation instead of dpkg
+
+  [ Vilgot Fredenberg ]
+  * Use sudo everywhere where it's needed
+
+  [ Oliver Old ]
+  * Add gbp.conf
+  * Get latest tag relative to current commit for package version
+  * Clean up build directory for Debian package
+
+  [ Vilgot Fredenberg ]
+  * Set priority for swapD to swapd_prio
+
+  [ Oliver Old ]
+  * Prepend conffile paths with /
+
+ -- Oliver Old <oliver.old@outlook.com>  Sat, 25 Jul 2020 21:58:55 +0200
+
 systemd-swap (4.3.2ubuntu1) focal; urgency=medium
 
   * Finalize setup of Debian package.
